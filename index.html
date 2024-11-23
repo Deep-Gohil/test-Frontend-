@@ -11,7 +11,7 @@
     <div class="details">
 
     </div>
-    <form action="http://localhost:8090/user/signup" method="post">
+    <form action="https://test-backend-lm2w.onrender.com/user/signup" method="post">
         <input type="text" placeholder="Enter Username" name="username">
         <input type="email" placeholder="Enter Email" name="email">
         <input type="text" placeholder="Enter Password" name="password">
@@ -33,7 +33,7 @@
         })
     }
     const Api = async () => {
-        let req = await fetch("http://localhost:8090/user/all")
+        let req = await fetch("https://test-backend-lm2w.onrender.com/user/all")
         const res =await req.json()
         
         Mapper(res)
