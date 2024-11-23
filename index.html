@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="details">
+
+    </div>
+    <form action="http://localhost:8090/user/signup" method="post">
+        <input type="text" placeholder="Enter Username" name="username">
+        <input type="email" placeholder="Enter Email" name="email">
+        <input type="text" placeholder="Enter Password" name="password">
+        <input type="submit">
+    </form>
+</body>
+<script>
+
+    const Mapper = (data) => {
+        data.map((ele) => {
+            let div = document.createElement("div")
+
+            let username = document.createElement("h1")
+            username.innerHTML = ele.username
+
+            div.append(username)
+
+            document.querySelector(".details").append(div)
+        })
+    }
+    const Api = async () => {
+        let req = await fetch("http://localhost:8090/user/all")
+        const res =await req.json()
+        
+        Mapper(res)
+    }
+
+    Api();
+</script>
+
+</html>
